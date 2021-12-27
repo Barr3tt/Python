@@ -6,19 +6,15 @@ class LolApp(tk.Frame):
         self.master.title('Better League Client')
         self.pack_propagate(0)
         self.pack()
-        self.greeting_var = tk.StringVar()
-        self.greeting = tk.OptionMenu(self,self.greeting_var,'hello','goodbye','heyo')
-        self.greeting_var.set('hello')
-        self.recipient_var = tk.StringVar()
-        self.recipient = tk.Entry(self,textvariable=self.recipient_var)
-        self.recipient_var.set('world')
+        self.choice_var = tk.StringVar()
+        self.choice = tk.OptionMenu(self,self.choice_var,'League Of Legends','LOL V2','Make League Better"')
+        self.choice_var.set('League Of Legends')
         self.go_button = tk.Button(self,text='Go',command=self.print_out)
         self.go_button.pack(fill=tk.X, side=tk.BOTTOM)
-        self.greeting.pack(fill=tk.X, side=tk.TOP)
-        self.recipient.pack(fill=tk.X, side=tk.TOP)
+        self.choice.pack(fill=tk.X, side=tk.BOTTOM)
  
     def print_out(self):
-        print('%s, %s!' % (self.greeting_var.get().title(),self.recipient_var.get()))
+        print('%s!' % (self.choice_var.get().title()))
     def run(self):
         self.mainloop()
  
