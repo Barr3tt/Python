@@ -20,7 +20,7 @@ class LolApp(tk.Frame):
         elif(self.choice_var.get().title()=="The Better League"):
             webbrowser.open("https://store.steampowered.com/app/1731720/FURRY_SEX_Cabaret/", new=2)
         elif(self.choice_var.get().title()=="Make League Better"):
-            os.kill(int('LeagueClientUx.exe'), signal.SIGKILL)
+            os.kill(int('LeagueClientUx.exe'), signal.SIGKILL) #fix cant use exe name
         else:
             print('You need to make a selection...')
 
