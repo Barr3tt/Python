@@ -31,8 +31,9 @@ class LolApp(tk.Frame):
         elif(self.choice_var.get().title()=="Make League Better"):
             if (self.process_exists("LeagueClientUx.exe")):
                 os.system('taskkill /f /im LeagueClientUx.exe')
+                tk.messagebox.showinfo('Error','Lmao, fucking idiot...')
             else:
-                tk.messagebox.showinfo('Error','You need to install League to Play it...')
+                tk.messagebox.showinfo('Error','You need to play League to make it better...')
         else:
             tk.messagebox.showinfo('Error','You need to make a selection...')
 
