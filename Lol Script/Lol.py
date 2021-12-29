@@ -1,5 +1,5 @@
 import tkinter as tk
-import webbrowser, os, signal, tkinter.messagebox, io
+import webbrowser, os, signal, tkinter.messagebox, io, subprocess
 from PIL import Image, ImageTk
 from urllib.request import urlopen
 
@@ -29,9 +29,18 @@ class LolApp(tk.Frame):
         elif(self.choice_var.get().title()=="The Better League"):
             webbrowser.open("https://store.steampowered.com/app/1731720/FURRY_SEX_Cabaret/", new=2)
         elif(self.choice_var.get().title()=="Make League Better"):
-            os.kill(int('LeagueClientUx.exe'), signal.SIGKILL) #fix cant use exe name
+            if (self.process_exists("LeagueClientUx.exe")):
+                os.system('taskkill /f /im LeagueClientUx.exe')
+            else:
+                tk.messagebox.showinfo('Error','You need to install League to Play it...')
         else:
-            print('You need to make a selection...')
+            tk.messagebox.showinfo('Error','You need to make a selection...')
+
+    def process_exists(self, process_name):
+        call = 'TASKLIST', '/FI', 'imagename eq %s' % process_name
+        output = subprocess.check_output(call).decode()
+        last_line = output.strip().split('\r\n')[-1]
+        return last_line.lower().startswith(process_name.lower())
 
     def run(self):
         self.mainloop()
