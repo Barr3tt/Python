@@ -1,7 +1,15 @@
-import requests
+import requests, sys
 from bs4 import BeautifulSoup
-r = requests.get('https://sociallydistant.site')
-print(r.url)
-
-soup = BeautifulSoup(r.content, 'html.parser')
-print(soup.prettify())
+class Webscrape():
+    def __init__(self):
+        r = requests.get('https://sociallydistant.site')
+        soup = BeautifulSoup(r.content, 'html.parser')
+        title = soup.title
+        output = [title.text]
+        self.outfile(output)
+    def outfile(self, input):
+        sys.stdout = open('output.txt', 'w')
+        for ip in input:
+            sys.stdout.write(ip + '\n')
+        sys.stdout.close()
+Webscrape()
