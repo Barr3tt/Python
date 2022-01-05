@@ -4,8 +4,7 @@ class Webscrape():
     def __init__(self):
         r = requests.get('https://sociallydistant.site')
         soup = BeautifulSoup(r.content, 'html.parser')
-        title = soup.title
-        output = [title.text]
+        output = [soup.title.text]
         self.outfile(output)
     def outfile(self, input):
         sys.stdout = open('output.txt', 'w')
