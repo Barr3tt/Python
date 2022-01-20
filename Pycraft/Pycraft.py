@@ -10,9 +10,8 @@ sky_texture   = load_texture('assets/skybox.png')
 arm_texture   = load_texture('assets/arm_texture.png')
 punch_sound   = Audio('assets/punch_sound',loop = False, autoplay = False)
 block_pick = 1
-
-window.fps_counter.enabled = False
-window.exit_button.visible = False
+window.fps_counter.enabled = True
+window.exit_button.visible = True
 
 def update():
 	global block_pick
@@ -75,7 +74,7 @@ class Hand(Entity):
 
 	def passive(self):
 		self.position = Vec2(0.4,-0.6)
-
+        
 for z in range(20):
 	for x in range(20):
 		voxel = Voxel(position = (x,0,z))
